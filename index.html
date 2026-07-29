@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RelaxPod 官方技术支持与常见问题">
+  <meta name="theme-color" content="#6658f5">
+  <title>RelaxPod Support</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #f5f6ff;
+      --surface: rgba(255, 255, 255, 0.88);
+      --text: #17172a;
+      --secondary: #62627a;
+      --primary: #6658f5;
+      --primary-end: #9b5cf6;
+      --border: rgba(102, 88, 245, 0.14);
+      --shadow: 0 22px 60px rgba(53, 42, 139, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 32px 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(120, 196, 255, 0.33), transparent 32%),
+        radial-gradient(circle at 90% 5%, rgba(179, 113, 255, 0.28), transparent 34%),
+        linear-gradient(145deg, #f8faff 0%, var(--background) 100%);
+    }
+
+    main {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .language-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .language-picker {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 10px 7px 13px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--secondary);
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(53, 42, 139, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .language-picker select {
+      max-width: 180px;
+      border: 0;
+      outline: 0;
+      color: var(--text);
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero,
+    .card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      padding: 42px 34px;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .icon {
+      display: grid;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      place-items: center;
+      border-radius: 24px;
+      color: white;
+      font-size: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      box-shadow: 0 14px 30px rgba(102, 88, 245, 0.35);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 8vw, 54px);
+      letter-spacing: -1.5px;
+    }
+
+    .tagline {
+      margin: 12px 0 0;
+      color: var(--secondary);
+      font-size: 17px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(102, 88, 245, 0.08);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card {
+      margin-top: 18px;
+      padding: 28px;
+      border-radius: 24px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 23px;
+    }
+
+    h3 {
+      margin: 22px 0 7px;
+      font-size: 17px;
+    }
+
+    p {
+      margin: 7px 0;
+      color: var(--secondary);
+      line-height: 1.75;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 18px;
+      padding: 0 20px;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-end));
+      box-shadow: 0 10px 24px rgba(102, 88, 245, 0.26);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(102, 88, 245, 0.34);
+    }
+
+    footer {
+      padding: 28px 12px 10px;
+      color: var(--secondary);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #10101d;
+        --surface: rgba(28, 28, 48, 0.86);
+        --text: #f5f3ff;
+        --secondary: #b8b6ca;
+        --border: rgba(164, 148, 255, 0.18);
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(43, 132, 196, 0.24), transparent 32%),
+          radial-gradient(circle at 90% 5%, rgba(121, 68, 186, 0.25), transparent 34%),
+          var(--background);
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 18px 12px;
+      }
+
+      .hero {
+        padding: 34px 22px;
+      }
+
+      .card {
+        padding: 23px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="language-bar">
+      <div class="language-picker">
+        <label for="language-select" data-i18n="languageLabel">语言</label>
+        <select id="language-select" aria-label="Language">
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="pt-BR">Português (Brasil)</option>
+          <option value="ru">Русский</option>
+        </select>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="icon" aria-hidden="true">🎮</div>
+      <h1>RelaxPod</h1>
+      <p class="tagline" data-i18n="tagline">一台装进口袋的单机解压小游戏机</p>
+      <div class="chips" aria-label="App features">
+        <span class="chip" data-i18n="chipFree">免费游戏</span>
+        <span class="chip" data-i18n="chipOffline">单机离线</span>
+        <span class="chip" data-i18n="chipNoAccount">无需注册</span>
+        <span class="chip" data-i18n="chipPlayNow">打开即玩</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 data-i18n="supportTitle">技术支持</h2>
+      <p data-i18n="intro">RelaxPod 包含方块消除、五子棋和消消乐等轻松小游戏。主要游戏内容无需联网，游戏进度保存在当前设备中。</p>
+
+      <h3 data-i18n="qAccount">是否需要注册或登录？</h3>
+      <p data-i18n="aAccount">不需要。下载安装后即可开始游戏。</p>
+
+      <h3 data-i18n="qSync">更换设备后，游戏进度会自动同步吗？</h3>
+      <p data-i18n="aSync">目前游戏数据保存在本机，不会自动同步到其他设备。</p>
+
+      <h3 data-i18n="qIssue">遇到闪退、显示异常或其他问题怎么办？</h3>
+      <p data-i18n="aIssue">请在反馈中写明设备型号、iOS 版本和问题出现的步骤，我们会尽快处理。</p>
+
+      <h3 data-i18n="emailTitle">联系邮箱</h3>
+      <p><a href="mailto:rocky8319690@gmail.com">rocky8319690@gmail.com</a></p>
+
+      <a class="button" href="https://github.com/Rocky8319690/relaxpod-support/issues" target="_blank" rel="noopener noreferrer" data-i18n="issueButton">提交问题反馈</a>
+    </section>
+
+    <footer data-i18n="footer">
+      © 2026 RelaxPod. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    const translations = {
+      "zh-Hans": {
+        languageLabel: "语言",
+        tagline: "一台装进口袋的单机解压小游戏机",
+        chipFree: "免费游戏",
+        chipOffline: "单机离线",
+        chipNoAccount: "无需注册",
+        chipPlayNow: "打开即玩",
+        supportTitle: "技术支持",
+        intro: "RelaxPod 包含方块消除、五子棋和消消乐等轻松小游戏。主要游戏内容无需联网，游戏进度保存在当前设备中。",
+        qAccount: "是否需要注册或登录？",
+        aAccount: "不需要。下载安装后即可开始游戏。",
+        qSync: "更换设备后，游戏进度会自动同步吗？",
+        aSync: "目前游戏数据保存在本机，不会自动同步到其他设备。",
+        qIssue: "遇到闪退、显示异常或其他问题怎么办？",
+        aIssue: "请在反馈中写明设备型号、iOS 版本和问题出现的步骤，我们会尽快处理。",
+        emailTitle: "联系邮箱",
+        issueButton: "提交问题反馈",
+        footer: "© 2026 RelaxPod。保留所有权利。"
+      },
+      "zh-Hant": {
+        languageLabel: "語言",
+        tagline: "一台裝進口袋的單機紓壓小遊戲機",
+        chipFree: "免費遊戲",
+        chipOffline: "單機離線",
+        chipNoAccount: "無需註冊",
+        chipPlayNow: "開啟即玩",
+        supportTitle: "技術支援",
+        intro: "RelaxPod 收錄方塊消除、五子棋和消消樂等輕鬆小遊戲。主要遊戲內容無需連線，遊戲進度儲存在目前裝置中。",
+        qAccount: "是否需要註冊或登入？",
+        aAccount: "不需要。下載安裝後即可開始遊戲。",
+        qSync: "更換裝置後，遊戲進度會自動同步嗎？",
+        aSync: "目前遊戲資料儲存在本機，不會自動同步到其他裝置。",
+        qIssue: "遇到閃退、顯示異常或其他問題怎麼辦？",
+        aIssue: "請在回報中提供裝置型號、iOS 版本和問題發生步驟，我們會儘快處理。",
+        emailTitle: "聯絡信箱",
+        issueButton: "提交問題回報",
+        footer: "© 2026 RelaxPod。保留所有權利。"
+      },
+      en: {
+        languageLabel: "Language",
+        tagline: "Relaxing offline mini games in your pocket",
+        chipFree: "Free Games",
+        chipOffline: "Offline",
+        chipNoAccount: "No Account",
+        chipPlayNow: "Play Instantly",
+        supportTitle: "Support",
+        intro: "RelaxPod is a collection of relaxing mini games, including Blocks, Gomoku and Pop Stars. The main games work offline, and progress is stored on your device.",
+        qAccount: "Do I need to register or sign in?",
+        aAccount: "No. Download the app and start playing right away.",
+        qSync: "Does progress sync across devices?",
+        aSync: "Not currently. Game progress is stored locally on the device where you play.",
+        qIssue: "How can I report a crash or display problem?",
+        aIssue: "Please include your device model, iOS version and the steps needed to reproduce the issue.",
+        emailTitle: "Contact Email",
+        issueButton: "Report a Problem",
+        footer: "© 2026 RelaxPod. All rights reserved."
+      },
+      ja: {
+        languageLabel: "言語",
+        tagline: "ポケットで楽しめるオフライン癒やしゲーム",
+        chipFree: "無料ゲーム",
+        chipOffline: "オフライン",
+        chipNoAccount: "登録不要",
+        chipPlayNow: "すぐ遊べる",
+        supportTitle: "サポート",
+        intro: "RelaxPod はブロックパズル、五目並べ、ポップパズルを収録した気軽に遊べるミニゲーム集です。主なゲームはオフラインで遊べ、進行状況は端末に保存されます。",
+        qAccount: "登録やログインは必要ですか？",
+        aAccount: "必要ありません。ダウンロード後すぐに遊べます。",
+        qSync: "ゲームの進行状況は端末間で同期されますか？",
+        aSync: "現在は同期されません。進行状況はプレイしている端末に保存されます。",
+        qIssue: "クラッシュや表示の問題を報告するには？",
+        aIssue: "端末モデル、iOS バージョン、問題が発生する手順をお知らせください。",
+        emailTitle: "お問い合わせメール",
+        issueButton: "問題を報告",
+        footer: "© 2026 RelaxPod. All rights reserved."
+      },
+      ko: {
+        languageLabel: "언어",
+        tagline: "주머니 속 오프라인 힐링 미니게임",
+        chipFree: "무료 게임",
+        chipOffline: "오프라인",
+        chipNoAccount: "가입 불필요",
+        chipPlayNow: "바로 플레이",
+        supportTitle: "고객 지원",
+        intro: "RelaxPod는 블록 퍼즐, 오목, 팝 스타를 담은 편안한 미니게임 모음입니다. 주요 게임은 오프라인으로 플레이할 수 있으며 진행 상황은 기기에 저장됩니다.",
+        qAccount: "가입하거나 로그인해야 하나요?",
+        aAccount: "아니요. 앱을 다운로드한 후 바로 플레이할 수 있습니다.",
+        qSync: "게임 진행 상황이 다른 기기와 동기화되나요?",
+        aSync: "현재는 지원하지 않습니다. 진행 상황은 플레이한 기기에 저장됩니다.",
+        qIssue: "충돌이나 화면 문제는 어떻게 신고하나요?",
+        aIssue: "기기 모델, iOS 버전, 문제가 발생한 과정을 함께 알려 주세요.",
+        emailTitle: "문의 이메일",
+        issueButton: "문제 신고",
+        footer: "© 2026 RelaxPod. All rights reserved."
+      },
+      fr: {
+        languageLabel: "Langue",
+        tagline: "Des mini-jeux relaxants hors ligne dans votre poche",
+        chipFree: "Jeux gratuits",
+        chipOffline: "Hors ligne",
+        chipNoAccount: "Sans compte",
+        chipPlayNow: "Jouer maintenant",
+        supportTitle: "Assistance",
+        intro: "RelaxPod réunit des mini-jeux relaxants, dont Blocks, Gomoku et Pop Stars. Les jeux principaux fonctionnent hors ligne et la progression est enregistrée sur votre appareil.",
+        qAccount: "Dois-je créer un compte ou me connecter ?",
+        aAccount: "Non. Téléchargez l’app et commencez à jouer immédiatement.",
+        qSync: "La progression est-elle synchronisée entre les appareils ?",
+        aSync: "Pas actuellement. La progression est enregistrée localement sur l’appareil utilisé.",
+        qIssue: "Comment signaler un plantage ou un problème d’affichage ?",
+        aIssue: "Indiquez le modèle de votre appareil, la version d’iOS et les étapes permettant de reproduire le problème.",
+        emailTitle: "E-mail de contact",
+        issueButton: "Signaler un problème",
+        footer: "© 2026 RelaxPod. Tous droits réservés."
+      },
+      de: {
+        languageLabel: "Sprache",
+        tagline: "Entspannende Offline-Minispiele für unterwegs",
+        chipFree: "Kostenlos",
+        chipOffline: "Offline",
+        chipNoAccount: "Ohne Konto",
+        chipPlayNow: "Sofort spielen",
+        supportTitle: "Support",
+        intro: "RelaxPod ist eine Sammlung entspannender Minispiele, darunter Blocks, Gomoku und Pop Stars. Die Hauptspiele funktionieren offline und der Fortschritt wird auf deinem Gerät gespeichert.",
+        qAccount: "Muss ich mich registrieren oder anmelden?",
+        aAccount: "Nein. Lade die App herunter und spiele sofort los.",
+        qSync: "Wird der Spielfortschritt zwischen Geräten synchronisiert?",
+        aSync: "Derzeit nicht. Der Fortschritt wird lokal auf dem verwendeten Gerät gespeichert.",
+        qIssue: "Wie melde ich einen Absturz oder Anzeigefehler?",
+        aIssue: "Bitte nenne dein Gerätemodell, die iOS-Version und die Schritte, mit denen sich das Problem reproduzieren lässt.",
+        emailTitle: "Kontakt-E-Mail",
+        issueButton: "Problem melden",
+        footer: "© 2026 RelaxPod. Alle Rechte vorbehalten."
+      },
+      es: {
+        languageLabel: "Idioma",
+        tagline: "Minijuegos relajantes sin conexión en tu bolsillo",
+        chipFree: "Juegos gratis",
+        chipOffline: "Sin conexión",
+        chipNoAccount: "Sin cuenta",
+        chipPlayNow: "Juega al instante",
+        supportTitle: "Soporte",
+        intro: "RelaxPod reúne minijuegos relajantes como Blocks, Gomoku y Pop Stars. Los juegos principales funcionan sin conexión y el progreso se guarda en tu dispositivo.",
+        qAccount: "¿Necesito registrarme o iniciar sesión?",
+        aAccount: "No. Descarga la app y empieza a jugar de inmediato.",
+        qSync: "¿El progreso se sincroniza entre dispositivos?",
+        aSync: "Actualmente no. El progreso se guarda localmente en el dispositivo donde juegas.",
+        qIssue: "¿Cómo informo de un cierre inesperado o un problema visual?",
+        aIssue: "Incluye el modelo del dispositivo, la versión de iOS y los pasos para reproducir el problema.",
+        emailTitle: "Correo de contacto",
+        issueButton: "Informar de un problema",
+        footer: "© 2026 RelaxPod. Todos los derechos reservados."
+      },
+      "pt-BR": {
+        languageLabel: "Idioma",
+        tagline: "Minijogos relaxantes offline no seu bolso",
+        chipFree: "Jogos grátis",
+        chipOffline: "Offline",
+        chipNoAccount: "Sem conta",
+        chipPlayNow: "Jogue agora",
+        supportTitle: "Suporte",
+        intro: "RelaxPod reúne minijogos relaxantes, incluindo Blocks, Gomoku e Pop Stars. Os jogos principais funcionam offline e o progresso é salvo no seu dispositivo.",
+        qAccount: "Preciso criar uma conta ou entrar?",
+        aAccount: "Não. Baixe o app e comece a jogar imediatamente.",
+        qSync: "O progresso é sincronizado entre dispositivos?",
+        aSync: "No momento, não. O progresso fica salvo localmente no dispositivo usado.",
+        qIssue: "Como relatar uma falha ou problema de exibição?",
+        aIssue: "Informe o modelo do dispositivo, a versão do iOS e as etapas para reproduzir o problema.",
+        emailTitle: "E-mail de contato",
+        issueButton: "Relatar um problema",
+        footer: "© 2026 RelaxPod. Todos os direitos reservados."
+      },
+      ru: {
+        languageLabel: "Язык",
+        tagline: "Расслабляющие офлайн-игры в вашем кармане",
+        chipFree: "Бесплатно",
+        chipOffline: "Офлайн",
+        chipNoAccount: "Без аккаунта",
+        chipPlayNow: "Играть сразу",
+        supportTitle: "Поддержка",
+        intro: "RelaxPod — это сборник расслабляющих мини-игр, включая Blocks, Gomoku и Pop Stars. Основные игры работают без интернета, а прогресс хранится на устройстве.",
+        qAccount: "Нужно ли регистрироваться или входить в аккаунт?",
+        aAccount: "Нет. Скачайте приложение и сразу начинайте играть.",
+        qSync: "Синхронизируется ли прогресс между устройствами?",
+        aSync: "Пока нет. Прогресс хранится локально на устройстве, на котором вы играете.",
+        qIssue: "Как сообщить о сбое или проблеме с отображением?",
+        aIssue: "Укажите модель устройства, версию iOS и шаги для воспроизведения проблемы.",
+        emailTitle: "Электронная почта",
+        issueButton: "Сообщить о проблеме",
+        footer: "© 2026 RelaxPod. Все права защищены."
+      }
+    };
+
+    const languageSelect = document.getElementById("language-select");
+
+    function resolveLanguage(language) {
+      const value = (language || "").toLowerCase();
+      if (value.startsWith("zh-hant") || value.startsWith("zh-tw") || value.startsWith("zh-hk") || value.startsWith("zh-mo")) {
+        return "zh-Hant";
+      }
+      if (value.startsWith("zh")) return "zh-Hans";
+      if (value.startsWith("pt")) return "pt-BR";
+      const base = value.split("-")[0];
+      return Object.prototype.hasOwnProperty.call(translations, base) ? base : "en";
+    }
+
+    function applyLanguage(language) {
+      const locale = Object.prototype.hasOwnProperty.call(translations, language)
+        ? language
+        : resolveLanguage(language);
+      const strings = translations[locale];
+
+      document.documentElement.lang = locale;
+      document.title = `RelaxPod · ${strings.supportTitle}`;
+      languageSelect.value = locale;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (strings[key]) element.textContent = strings[key];
+      });
+
+      try {
+        localStorage.setItem("relaxpod-language", locale);
+      } catch (_) {
+        // The page still works when storage is unavailable.
+      }
+    }
+
+    let savedLanguage = "";
+    try {
+      savedLanguage = localStorage.getItem("relaxpod-language") || "";
+    } catch (_) {
+      savedLanguage = "";
+    }
+
+    applyLanguage(savedLanguage || navigator.language || "en");
+    languageSelect.addEventListener("change", (event) => applyLanguage(event.target.value));
+  </script>
+</body>
+</html>
